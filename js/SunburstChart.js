@@ -80,7 +80,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
         const totalSum = root.value;
 
-        // Draw the arcs
+        // Draw the arcs with expand/contract animation on hover
         svg.selectAll("path")
             .data(root.descendants().filter(d => d.depth > 0))
             .enter()
@@ -89,8 +89,17 @@ document.addEventListener("DOMContentLoaded", function() {
             .attr("d", arc)
             .style("stroke", "#fff")
             .style("fill", d => color((d.children ? d : d.parent).data.name))
-            .on("mouseover", (event, d) => {
-                const tooltip = d3.select("#tooltip-graph3"); // Select specific tooltip for sunburst
+            .on("mouseover", function(event, d) {
+                d3.select(this).transition()
+                    .duration(200)
+                    .attr("d", d3.arc()  // Expand outward by 10px on hover
+                        .startAngle(d.x0)
+                        .endAngle(d.x1)
+                        .innerRadius(d.y0)
+                        .outerRadius(d.y1 + 10));
+                
+                // Show tooltip
+                const tooltip = d3.select("#tooltip-graph3");
                 tooltip.transition()
                     .duration(200)
                     .style("opacity", 1);
@@ -99,12 +108,17 @@ document.addEventListener("DOMContentLoaded", function() {
                     .style("top", (event.pageY - 20) + "px");
             })
             .on("mousemove", event => {
-                d3.select("#tooltip-graph3") // Update tooltip position
+                d3.select("#tooltip-graph3")
                     .style("left", (event.pageX + 10) + "px")
                     .style("top", (event.pageY - 20) + "px");
             })
-            .on("mouseout", () => {
-                d3.select("#tooltip-graph3").transition() // Hide tooltip on mouseout
+            .on("mouseout", function(event, d) {
+                d3.select(this).transition()
+                    .duration(200)
+                    .attr("d", arc);  // Reset to original size
+                
+                // Hide tooltip
+                d3.select("#tooltip-graph3").transition()
                     .duration(200)
                     .style("opacity", 0);
             });

@@ -26,14 +26,16 @@
   opacity: 1;
   transform: translateY(0);
 }
-.legend {
+#map-legend-container, #pie-legend-container {
   font-size: 14px;
 }
-.legend rect {
+
+#map-legend-container rect, #pie-legend-container rect {
   width: 20px;
   height: 20px;
   margin-right: 5px;
 }
+
 button {
   background-color: #007BFF;
   color: white;
