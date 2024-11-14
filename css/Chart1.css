@@ -1,0 +1,36 @@
+
+.slope-line {
+    stroke: gray;
+    stroke-width: 1;
+}
+
+.dot {
+    stroke-width: 1;
+    stroke: black;
+}
+
+.legend rect {
+    stroke-width: 1;
+    stroke: black;
+}
+
+.legend text {
+    font-size: 12px;
+}
+
+.country-label {
+    font-size: 10px;
+    fill: #333;
+}
+
+.tooltip1 {
+    position: absolute;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 5px;
+    font-size: 12px;
+    pointer-events: none;
+    display: none;
+    border-radius: 3px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+}

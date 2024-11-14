@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital Admissions Chart</title>
+    <link rel="stylesheet" href="css/Chart1.css">
+    <link rel="stylesheet" href="css/Chart2.css">
+    <link rel="stylesheet" href="css/Main.css">
+    <link rel="stylesheet" href="css/CombineG1.css"> <!-- Additional CSS for the mortality chart -->
+    <link rel="stylesheet" href="css/Graph3.css">
+</head>
+<body>
+
+<!-- Existing Content -->
+
+<!-- Masthead Section -->
+<header class="masthead">
+    <div class="masthead-content">  
+        <h1>Cardiovascular Diseases (CVD)</h1>
+        <p>Welcome to our data visualization project, which delves into the critical and complex topic of cardiovascular disease. As one of the leading causes of death worldwide, cardiovascular disease affects millions and imposes significant social, economic, and healthcare burdens.</p>
+        <br>
+        <p>Using four data visualizations, we aim to shed light on key aspects of cardiovascular disease, including its prevalence, risk factors, trends over time, and impacts on different populations. These insights are essential for understanding the scope of the issue and for informing efforts to reduce the incidence of cardiovascular disease and improve public health outcomes.</p>
+        <br>
+        <p>Presented by Lim Chee Yung & Gian Tze Ee</p>
+    </div>
+    <div class="masthead-image">
+        <img src="img/cvd.png" alt="Doctor consulting with an elderly patient">
+    </div>
+</header>
+
+<div class="main-content">
+</div>
+
+<div class="container mt-5">
+    <div class="row">
+        <!-- Left Text Section -->
+        <div class="col-md-3 info-section">
+            <h2>Stroke Mortality in Europe</h2>
+            <p>In 2021, strokes and other cerebrovascular diseases accounted for 6% of all deaths across European OECD countries. Strokes occur due to a disruption in blood supply to the brain, leading not only to high mortality rates but also to significant long-term disability. The highest mortality rates were observed in Bulgaria, Latvia, and Romania, where rates exceeded most other European nations.</p>
+            <p>Since 2011, most European countries have seen a decrease in stroke mortality, averaging a reduction of 25%. This decline is largely attributed to lower smoking rates, better quality of care, and improved survival rates post-stroke. However, some countries, such as Latvia, experienced a slight increase in mortality rates over the decade, underscoring the persistent socio-economic disparities in stroke outcomes.</p>
+        </div>
+        
+        <!-- Right Chart Section -->
+        <div class="col-md-9 chart-section">
+            <div id="Chart1" class="chart-container"></div>
+            <div class="footer">
+                Source: OECD Health Statistics 2023.
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container mt-5">
+    <div class="row">
+        <!-- Left Text Section -->
+        <div class="col-md-3 info-section">
+            <h2>Cardiovascular Disease Indicators</h2>
+            <p>Cardiovascular disease (CVD) indicators such as cholesterol and glucose levels, smoking, and alcohol consumption were key factors in determining the health outcomes. These indicators have a strong correlation with CVD prevalence, as shown in a dataset of 70,000 patient records. The data revealed that high cholesterol and glucose levels, smoking, and alcohol consumption were more prevalent in individuals with CVD, while non-smokers, non-drinkers, and those with normal cholesterol and glucose levels had lower CVD rates.</p>
+            <p>Shift in health behaviors were shown, with reductions in smoking rates and alcohol consumption contributing to lower CVD prevalence. Therefore, addressing these risk factors will be crucial in reducing the burden of cardiovascular diseases in the future.</p>
+        </div>
+        
+        <!-- Right Chart Section -->
+        <div class="col-md-9 chart-section">
+            <div id="Chart2" class="chart-container"></div>         
+            <div class="footer">
+                Source: Kaggle (Svetlana Ulianova) 2018.
+            </div>
+        </div>
+    </div>
+</div>  
+
+<!-- New Mortality Rates Chart Section -->
+<div class="container mt-5">
+    <div class="row">
+        <!-- Left Text Section -->
+        <div class="col-md-3 info-section">
+            <h2>Mortality Rates from Cardiovascular Diseases</h2>
+           <p>In 2021, heart attacks and other ischaemic heart diseases (IHDs) accounted for 11% of all deaths in OECD countries. Mortality rates are 83% higher for men than women across OECD countries, primarily because of a greater prevalence of contributing risk factors among men, such as smoking, high-blood pressure and high cholesterol.</p>
+            <p>Among OECD countries, Central and Eastern European countries had the highest IHD mortality rates – particularly Lithuania, where there were 395 deaths per 100,000 population. Rates were also relatively high in Latvia, Hungary, Mexico, and the Slovak Republic. Korea, Japan, France, and the Netherlands had the lowest rates among OECD countries, at about one-third of the OECD average.</p>
+        </div>
+
+        <!-- Right Chart Section with Toggle Functionality -->
+        <div class="col-md-9 chart-section">
+            <h3 class="chart-title">Cardiovascular Health Indicators and Disease Prediction</h3>
+            <div id="mortality-chart-container">
+                <div class="button-container">
+                    <button id="toggleChartButton">Switch to Map</button>
+                    <button id="yearToggle" class="toggle-button">Switch to 2011 Data</button>
+                </div>
+
+                <!-- Chart container for the pie chart -->
+                <div id="chart" class="chart"></div>
+
+                <!-- Map container for the map -->
+                <div id="map"></div>
+
+                <!-- Tooltip div -->
+                <div id="tooltip" class="tooltip"></div>
+
+                <!-- Legend containers -->
+                <div id="map-legend" class="legend"></div>
+                <div id="pie-legend" class="legend"></div>
+            </div>
+            <div class="footer">
+                Source: Organisation for Economic Co-operation and Development(OECD)
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Sunburst Chart Section inside its own container -->
+<div class="container mt-5" id="sunburst-chart-container">
+    <div class="row">
+        <!-- Left Text Section -->
+        <div class="col-md-3 info-section">
+            <h2>Causes of Death Overview</h2>
+            <p>This sunburst chart visualizes the various causes of death, providing insight into the distribution of mortality across different categories...</p>
+        </div>
+
+        <!-- Right Chart Section -->
+        <div class="col-md-9 chart-section">
+            <div id="sunburst-chart">
+                <h3>Sunburst Chart: Causes of Death</h3>
+                <!-- Updated ID for the chart container -->
+                <div id="sunburst-chart-inner-container"></div>
+                <div class="tooltip" id="tooltip"></div> <!-- Tooltip element -->
+            </div>
+            <div class="footer">
+                Source: Global Mortality Data 2023.
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Scripts -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet"> <!-- Bootstrap -->
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet"> <!-- Google Font -->
+<script src="https://d3js.org/d3.v7.min.js"></script> <!-- D3 script -->
+<script src="js/Chart1.js"></script>
+<script src="js/Chart2.js"></script>
+<script src="js/CombineG1.js"></script> <!-- JavaScript for the mortality rates chart -->
+<script src="js/SunburstChart.js"></script> <!-- JavaScript for the sunburst chart -->
+
+</body>
+</html>
