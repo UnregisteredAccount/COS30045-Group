@@ -31,4 +31,41 @@
   transition: opacity 0.2s ease;
   z-index: 10;
 }
+@keyframes rollIn {
+  from {
+      transform: rotate(-120deg) scale(0.5);
+      opacity: 0;
+  }
+  to {
+      transform: rotate(0deg) scale(1);
+      opacity: 1;
+  }
+}
+@keyframes rollIn {
+  from {
+      transform: rotate(-120deg) scale(0.5);
+      opacity: 0;
+  }
+  to {
+      transform: rotate(0deg) scale(1);
+      opacity: 1;
+  }
+}
+
+@keyframes rollIn {
+  from {
+      transform: rotate(-120deg) scale(0.5);
+      opacity: 0;
+  }
+  to {
+      transform: rotate(0deg) scale(1);
+      opacity: 1;
+  }
+}
+
+.roll-in {
+  animation: rollIn 0.8s ease-out;
+  opacity: 1; /* Ensure visibility after animation */
+}
+
 

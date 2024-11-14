@@ -3,7 +3,7 @@
   stroke-width: 0.5;
 }
 #map, #chart, #map-legend, #pie-legend {
-  display: none;
+  display: none; /* Controlled via JavaScript */
 }
 .tooltip-combine {
   position: absolute;
@@ -21,7 +21,6 @@
   opacity: 1;
   transform: translateY(0);
 }
-
 .tooltip.visible {
   opacity: 1;
   transform: translateY(0);
@@ -29,13 +28,11 @@
 #map-legend-container, #pie-legend-container {
   font-size: 14px;
 }
-
 #map-legend-container rect, #pie-legend-container rect {
   width: 20px;
   height: 20px;
   margin-right: 5px;
 }
-
 button {
   background-color: #007BFF;
   color: white;
@@ -64,4 +61,19 @@ button:active {
 .chart {
   display: block;
   margin: 0 auto;
+}
+@keyframes rollIn {
+  from {
+      transform: rotate(-120deg) scale(0.5);
+      opacity: 0;
+  }
+  to {
+      transform: rotate(0deg) scale(1);
+      opacity: 1;
+  }
+}
+
+.roll-in {
+  animation: rollIn 0.8s ease-out;
+  opacity: 1;
 }

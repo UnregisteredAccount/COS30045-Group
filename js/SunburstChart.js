@@ -177,4 +177,18 @@ document.addEventListener("DOMContentLoaded", function() {
     }).catch(error => {
         console.error("Error loading the CSV file: ", error);
     });
+
+    // Set up Intersection Observer for roll-in animation
+    const sunburstContainer = document.querySelector("#sunburst-chart-inner-container");
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                sunburstContainer.classList.add("roll-in");  // Add roll-in animation
+                observer.unobserve(sunburstContainer);  // Stop observing after first trigger
+            }
+        });
+    }, { threshold: 0.5 });
+
+    // Start observing the sunburst container
+    observer.observe(sunburstContainer);
 });
