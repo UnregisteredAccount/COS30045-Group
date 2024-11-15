@@ -30,7 +30,7 @@ svg.append("text")
     .style("font-size", "14px")
     .style("font-family", "'Open Sans', sans-serif") // Match font family to Open Sans
     .style("fill", "#1d3557") // Use the same color as the title
-    .text("Age standardised rates per 100 000 population");
+    .text("(Age standardised) deaths per 100 000 population");
 
     // Parse data and ensure numeric values
     data.forEach(d => {
